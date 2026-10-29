@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>darkraiBlog</title>
+
+    <link rel="preload" href="build/css/app.css" as="style">
+    <link rel="stylesheet" href="build/css/app.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--+++++++++++++++++++++ HEADER +++++++++++++++++++++-->
+    <header>
+        <div class="header">
+            <div class="header__hero">
+                <nav class="navbar">
+                    <div class="navbar__left">
+                        <picture>
+                            <img src="./src/imgs/logo.png" class="logo" alt="Logo">
+                        </picture>
+                    </div>
+                    <div class="navbar__right">
+                        <ul class="links">
+                            <a href="#gallery" class="link">Gallery</a>
+                            <a href="#opinions" class="link">Opinions</a>
+                            <a href="#form" class="link">Form</a>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="header__hero--content">
+                        <video autoplay muted playsinline loop disablePictureInPicture controlsList="nodownload">
+                            <source srcset="src/video/Darkrai Moments.avif" type="video/avif" >
+                            <source src="./src/video/Darkrai%20Moments.mp4" type="video/mp4">
+                        </video>
+
+                    <div class="content">
+                        <h1 class="title">Who even is Darkrai</h1>
+                        <p class="hero-paragraph">The illest Pokemon?</p>
+                        <input class="hero-input" type="button" value="Check more here!">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--+++++++++++++++++++++ HALF WAY IN +++++++++++++++++++++-->
+    <section id="half">
+        <div class="half__hero">
+            <div class="half__hero-left">
+                <!-- Image -->
+            </div>
+            <div class="half__hero-right">
+                <div class="subtitle">First of, Who is he?</div>
+                <p class="op">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae delectus distinctio eos facilis inventore iste praesentium quibusdam sint sit temporibus! Dolores ea fugiat in labore, omnis perferendis possimus ratione suscipit.</p>
+            </div>
+        </div>
+    </section>
+
+    <!--+++++++++++++++++++++ GALLERY +++++++++++++++++++++-->
+    <section id="gallery">
+        <div class="gallery__hero">
+            <div class="title-container">
+                <h1 class="title">
+                    These are Darkrai's current available TCG's
+                </h1>
+                <p class="gallery-paragraph">Not as valuable as people think he is due to its rarity</p>
+            </div>
+        </div>
+    </section>
+
+    <!--+++++++++++++++++++++ OPINIONS +++++++++++++++++++++-->
+    <section id="opinions">
+        <div class="opinions__hero">
+            <div class="title-container">
+                <h1 class="title">What do I think about Darkrai?</h1>
+            </div>
+
+            <div class="opinions__hero-left">
+                <h2 class="subtitle">The good parts</h2>
+                <p class="op"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias corporis ducimus eius illo laboriosam nostrum quas quidem, quos repudiandae tenetur. Commodi distinctio ea illum molestiae perspiciatis rerum sint ut voluptas!</span><span>Amet blanditiis dolorem, eligendi enim eveniet optio ullam velit voluptas. Aliquam architecto, aut blanditiis, eligendi esse eum facere harum in laudantium modi molestiae nulla possimus quidem, reprehenderit sint sit voluptate.</span></p>
+            </div>
+            <div class="opinions__hero-right">
+                <h2 class="subtitle">The bad parts</h2>
+                <p class="op"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto beatae consequatur consequuntur corporis culpa cumque eaque eos explicabo fuga illum, ipsam iusto laboriosam laborum minima saepe sapiente, soluta ut. Cumque!</span><span>A ad alias animi at aut commodi, culpa cum delectus ea enim est eum ex iure labore libero maxime praesentium qui quidem quisquam quo quod recusandae tempora ullam veritatis voluptas.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!--+++++++++++++++++++++ FORM +++++++++++++++++++++-->
+    <section id="form">
+        <div class="title-container">
+            <h1 class="title">Get the latest Darkrai news</h1>
+            <form action="">
+                <fieldset>
+                    <div class="form__hero">
+                        <label for="nameField">Name: </label>
+                        <input type="text" id="nameField" class="nameField form__input" placeholder="Your name goes here!">
+                        <label for="phoneField">Phone: </label>
+                        <input type="text" id="phoneField" class="phoneField form__input" placeholder="Your phone goes here!">
+                        <label for="emailField">Email: </label>
+                        <input type="text" id="emailField" class="emailField form__input" placeholder="Your email goes here!">
+                        <label for="passwordField">Password: </label>
+                        <input type="text" id="passwordField" class="passwordField form__input" placeholder="Your password goes here!">
+                        <label for="rpassField">Repeat password: </label>
+                        <input type="text" id="rpassField" class="rpassField form__input" placeholder="Your password goes here!">
+
+                        <!-- Submit button appended through JavaScript -->
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+
+    <!--+++++++++++++++++++++ FOOTER +++++++++++++++++++++-->
+    <footer>
+
+    </footer>
+
+<script src="build/js/script.js"></script>
+</body>
+</html>

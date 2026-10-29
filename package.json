@@ -1,0 +1,21 @@
+{
+  "name": "darkraiblog",
+  "version": "1.0.0",
+  "description": "Darkrai recollection of TCG art design.",
+  "author": "SkinnyCheesecake",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "render": "gulp"
+  },
+  "dependencies": {
+    "gulp": "^5.0.1",
+    "sass": "^1.107.0"
+  },
+  "devDependencies": {
+    "glob": "^14.0.3",
+    "gulp-sass": "^6.0.1",
+    "gulp-terser": "^2.1.0",
+    "sharp": "^0.35.5"
+  }
+}
