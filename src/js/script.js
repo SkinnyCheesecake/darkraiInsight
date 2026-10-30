@@ -43,19 +43,80 @@ function fullImage(i) {
     modal.onclick = closeModal;
 }
 
-function closeModal(event) {
-    // BUG FIX: always close the modal that received the click instead of the
-    // first `.modal`/`.close` found in the document. This keeps the overlay and
-    // the `overflow-hidden` class on <body> in sync, so the page is scrollable
-    // again after closing. The close button lives inside the modal, so it is
-    // removed together with its parent (no separate `close.remove()` needed).
-    const modal = event?.currentTarget ?? document.querySelector('.modal');
-    if (!modal) return;
-
+function closeModal() {
+    const modal = document.querySelector('.modal');
     const body = document.querySelector('body');
     modal.classList.add('fade-out');
     setTimeout( () => {
         modal.remove();
         body.classList.remove('overflow-hidden');
     }, 400)
+}
+
+const nameField = document.querySelector('.nameField');
+const phoneField = document.querySelector('.phoneField');
+const emailField = document.querySelector('.emailField');
+const passwordField = document.querySelector('.passwordField');
+const rpassField = document.querySelector('.rpassField');
+const submitButton = document.createElement('INPUT');
+const formField = document.querySelector('.form__hero');
+
+const successAlert = document.createElement('P');
+successAlert.classList.add('success');
+successAlert.textContent = "Your form has been submitted successfully";
+
+const mistakeAlert = document.createElement('P');
+mistakeAlert.classList.add('mistake');
+mistakeAlert.textContent = "Please fill the form as required";
+
+const passwordAlert = document.createElement('P');
+passwordAlert.classList.add('password');
+passwordAlert.textContent = "Passwords do not match";
+
+
+submitButton.value = "Submit your form!";
+submitButton.type = 'submit';
+formField.appendChild(submitButton);
+
+const formData = {
+    nameField: '',
+    phoneField: '',
+    emailField: '',
+    passwordField: '',
+    rpassField: ''
+}
+
+nameField.addEventListener('input', debugInput);
+phoneField.addEventListener('input', debugInput);
+emailField.addEventListener('input', debugInput);
+passwordField.addEventListener('input', debugInput);
+rpassField.addEventListener('input', debugInput);
+
+formField.addEventListener('submit', submitForm);
+submitButton.addEventListener('click', submitForm)
+
+function debugInput ( event ) {
+    formData[event.target.id] = event.target.value;
+    console.log(formData);
+}
+
+function submitForm ( event ) {
+    event.preventDefault();
+    const { nameField, phoneField, emailField, passwordField, rpassField } = formData;
+    if( nameField === "" || phoneField  === "" || emailField === "" || passwordField === "" || rpassField === "" || rpassField === "" ) {
+        formField.appendChild(mistakeAlert);
+        setTimeout( () => {
+            mistakeAlert.remove();
+        }, 3000)
+    } else if ( passwordField !== rpassField ) {
+        formField.appendChild(passwordAlert);
+        setTimeout( () => {
+            passwordAlert.remove();
+        }, 3000)
+    } else {
+        formField.appendChild(successAlert);
+        setTimeout( () => {
+            successAlert.remove();
+        }, 3000)
+    }
 }

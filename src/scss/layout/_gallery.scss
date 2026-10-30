@@ -3,14 +3,34 @@
 
 .gallery__hero{
   @include container();
+
   .title-container{
+    max-width: 80rem;
+    margin: 0 auto 5rem;
+
     .title, .gallery-paragraph{
       color: $black !important;
       text-align: center;
     }
+
+    .title {
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .gallery-paragraph {
+      margin: 0;
+      color: rgba($black, 0.65) !important;
+    }
   }
 
   &--container{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    justify-items: center;
+    align-items: start;
+
     @include phone() {
       @include grid(2, 2rem);
     }
@@ -27,25 +47,48 @@
   .image{
     margin: 0 auto;
     max-width: 30rem;
+    width: 100%;
     padding: 1.5rem;
+    background-color: $white;
+    border: 1px solid $light-gray;
+    border-radius: 1.6rem;
+    box-shadow: 0 0.4rem 1.5rem rgba($black, 0.04);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-0.6rem);
+      border-color: rgba($main-red, 0.35);
+      box-shadow: 0 1.8rem 4rem rgba($black, 0.12);
+    }
+
+    &:active {
+      transform: translateY(-0.2rem) scale(0.99);
+    }
   }
 }
 
 .modal {
   position: fixed;
   inset: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
   padding: 2rem;
   background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(0.6rem);
+  animation: modal-fade-in 0.35s ease both;
 
   .full-image {
     width: auto;
     height: auto;
     max-width: 60%;
     max-height: 70%;
+    border-radius: 1.2rem;
+    box-shadow: 0 3rem 8rem rgba(0, 0, 0, 0.5);
+    animation: modal-image-in 0.4s ease both;
   }
 
   .close {
@@ -53,15 +96,50 @@
     top: 1.5rem;
     right: 2rem;
     z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
     margin: 0;
+    font-weight: 700;
     color: $white;
-    cursor: none;
-    @include phone() {
-      cursor: pointer;
+    background-color: rgba($white, 0.12);
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      background-color: rgba($white, 0.22);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
     }
   }
   &.fade-out {
     animation: modal-fade-out 0.4s ease forwards;
+  }
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-image-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 

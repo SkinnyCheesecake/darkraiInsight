@@ -19,10 +19,14 @@ header {
 .navbar {
   @include container();
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem 0;
 
   @include phone() {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
   }
 
@@ -36,7 +40,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1rem;
     &:nth-last-child(1) {
       padding-bottom: 2rem;
 
@@ -47,12 +51,26 @@ header {
 
   @include phone() {
     flex-direction: row;
+    gap: 0.5rem;
   }
 
 }
 
 .link{
   color: $black !important;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  transition: color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
+
+  &:hover {
+    color: $main-red !important;
+    background-color: rgba($main-red, 0.08);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.97);
+  }
 }
 
 .logo {
@@ -81,11 +99,25 @@ picture {
     z-index: 0;
     display: block;
     filter: brightness(0.25) blur(0.75rem);
+    transform: scale(1.03);
   }
 
   .content {
     position: relative;
     z-index: 1;
+    padding: 0 5%;
     text-align: center;
+    animation: hero-fade-in 0.8s ease both;
+  }
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

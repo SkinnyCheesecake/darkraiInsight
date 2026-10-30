@@ -1,0 +1,75 @@
+@use '../tools/mixins' as *;
+@use '../tools/variables' as *;
+
+.opinions{
+
+  background-color: $black;
+
+  .title-container {
+    max-width: 75rem;
+    margin: 0 auto 5rem;
+    padding: 0 5%;
+  }
+
+  .title{
+    font-size: clamp(3.2rem, 7vw, 5rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-align: center;
+  }
+
+  .subtitle, .op{
+    text-align: center;
+    color: $white;
+
+    @include tablet() {
+      text-align: left;
+    }
+  }
+
+  .subtitle {
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .op {
+    line-height: 1.7;
+    opacity: 0.85;
+
+    span {
+      display: block;
+
+      & + span {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  &__hero{
+    @include container();
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include desktop() {
+      @include grid(2, 2rem)
+    }
+
+    &--content{
+      padding: 3rem;
+      background-color: rgba($white, 0.04);
+      border: 1px solid rgba($white, 0.08);
+      border-radius: 2rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+
+      &:hover {
+        transform: translateY(-0.4rem);
+      }
+    }
+
+    &--content:nth-child(even){
+      background-color: $main-red;
+      border-color: transparent;
+    }
+  }
+}

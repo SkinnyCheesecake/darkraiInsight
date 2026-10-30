@@ -1,40 +1,55 @@
 @use '../tools/mixins' as *;
 @use '../tools/variables' as *;
 
-.half__hero{
-  @include container();
+.half{
 
-  &--img{
-    width: 100%;
-    object-fit: cover;
-    object-position: top;
-    margin: 0 auto;
-    max-height: 25rem;
-  }
+  background-color: $main-red;
 
-  @include tablet() {
-    @include grid(2, 5rem);
-  }
-
-  &-right{
+  &__hero{
+    @include container();
     display: flex;
     flex-direction: column;
-    justify-content: center;
-  }
-}
+    gap: 3rem;
 
-.subtitle{
-  font-size: 4rem;
-  font-weight: 700;
-  text-align: center;
-  @include phone(){
-    margin-top: 2rem;
-  }
-}
+    &--img{
+      width: 100%;
+      object-fit: cover;
+      object-position: top;
+      margin: 0 auto;
+      max-height: 25rem;
+      border-radius: 1.6rem;
+      box-shadow: 0 2rem 4rem rgba($black, 0.18);
+    }
 
-.op{
-  text-align: center;
-  @include tablet(){
-    text-align: start;
+    @include tablet() {
+      @include grid(2, 5rem);
+      align-items: center;
+    }
+
+    &-right{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .subtitle{
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: $white;
+    @include tablet(){
+      text-align: left;
+    }
+  }
+
+  .op{
+    color: $white;
+    text-align: center;
+    line-height: 1.7;
+    @include tablet(){
+      text-align: start;
+    }
   }
 }

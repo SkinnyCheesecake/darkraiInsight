@@ -1,0 +1,150 @@
+@use '../tools/mixins' as *;
+@use '../tools/variables' as *;
+
+.form{
+  background-color: $white;
+
+  &__hero{
+    @include container();
+    max-width: 80rem;
+  }
+
+  .title{
+    color: $black;
+    text-align: center;
+    letter-spacing: -0.03em;
+    margin-bottom: 4rem;
+  }
+
+  .formField {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin: 0;
+    gap: 0.75rem;
+    padding: 3rem;
+    background-color: #fff;
+    border: 1px solid $light-gray;
+    border-radius: 2rem;
+    box-shadow: 0 2rem 5rem rgba($black, 0.06);
+  }
+
+  label {
+    margin-top: 1.25rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $gray;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .form__input {
+    width: 100%;
+    min-width: 0;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.7rem;
+    color: $black;
+    background-color: $white;
+    border: 1px solid $light-gray;
+    border-radius: 1rem;
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+    &::placeholder {
+      color: rgba($black, 0.35);
+    }
+
+    &:hover {
+      border-color: rgba($black, 0.2);
+    }
+
+    &:focus {
+      outline: none;
+      background-color: #fff;
+      border-color: $main-red;
+      box-shadow: 0 0 0 0.4rem rgba($main-red, 0.12);
+    }
+  }
+
+  input[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1.4rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $white;
+    background-color: $main-red;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    box-shadow: 0 1rem 2.5rem rgba($main-red, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+
+    &:hover {
+      filter: brightness(1.08);
+      transform: translateY(-0.2rem);
+      box-shadow: 0 1.4rem 3rem rgba($main-red, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.99);
+      box-shadow: 0 0.6rem 1.5rem rgba($main-red, 0.2);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($main-red, 0.3);
+      outline-offset: 3px;
+    }
+  }
+
+  .success,
+  .mistake,
+  .password {
+    margin: 1.5rem 0 0;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    animation: alert-in 0.3s ease both, alert-out 0.3s ease 2.7s forwards;
+  }
+
+  .success {
+    color: #1a7f37;
+    background-color: #eaf7ee;
+    border-color: #b7e4c7;
+  }
+
+  .mistake {
+    color: #b42318;
+    background-color: #fef3f2;
+    border-color: #fecdca;
+  }
+
+  .password {
+    color: #b54708;
+    background-color: #fffaeb;
+    border-color: #fedf89;
+  }
+}
+
+@keyframes alert-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.75rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes alert-out {
+  to {
+    opacity: 0;
+    transform: translateY(-0.5rem) scale(0.98);
+  }
+}

@@ -50,7 +50,7 @@
         </div>
     </header>
     <!--+++++++++++++++++++++ HALF WAY IN +++++++++++++++++++++-->
-    <section id="half">
+    <section id="half" class="half">
         <div class="half__hero">
             <div class="half__hero-left">
                 <picture>
@@ -81,17 +81,16 @@
     </section>
 
     <!--+++++++++++++++++++++ OPINIONS +++++++++++++++++++++-->
-    <section id="opinions">
+    <section id="opinions" class="opinions">
+        <div class="title-container">
+            <h1 class="title">What do I think about Darkrai?</h1>
+        </div>
         <div class="opinions__hero">
-            <div class="title-container">
-                <h1 class="title">What do I think about Darkrai?</h1>
-            </div>
-
-            <div class="opinions__hero-left">
+            <div class="opinions__hero--content">
                 <h2 class="subtitle">The good parts</h2>
                 <p class="op"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias corporis ducimus eius illo laboriosam nostrum quas quidem, quos repudiandae tenetur. Commodi distinctio ea illum molestiae perspiciatis rerum sint ut voluptas!</span><span>Amet blanditiis dolorem, eligendi enim eveniet optio ullam velit voluptas. Aliquam architecto, aut blanditiis, eligendi esse eum facere harum in laudantium modi molestiae nulla possimus quidem, reprehenderit sint sit voluptate.</span></p>
             </div>
-            <div class="opinions__hero-right">
+            <div class="opinions__hero--content">
                 <h2 class="subtitle">The bad parts</h2>
                 <p class="op"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto beatae consequatur consequuntur corporis culpa cumque eaque eos explicabo fuga illum, ipsam iusto laboriosam laborum minima saepe sapiente, soluta ut. Cumque!</span><span>A ad alias animi at aut commodi, culpa cum delectus ea enim est eum ex iure labore libero maxime praesentium qui quidem quisquam quo quod recusandae tempora ullam veritatis voluptas.</span></p>
             </div>
@@ -99,25 +98,23 @@
     </section>
 
     <!--+++++++++++++++++++++ FORM +++++++++++++++++++++-->
-    <section id="form">
-        <div class="title-container">
-            <h1 class="title">Get the latest Darkrai news</h1>
-            <form action="">
-                <fieldset>
-                    <div class="form__hero">
+    <section id="form" class="form">
+        <div class="form__hero">
+            <div class="title-container"><h1 class="title">Get the latest Darkrai news</h1></div>
+                <form action="">
+                <fieldset class="formField">
                         <label for="nameField">Name: </label>
                         <input type="text" id="nameField" class="nameField form__input" placeholder="Your name goes here!">
                         <label for="phoneField">Phone: </label>
-                        <input type="text" id="phoneField" class="phoneField form__input" placeholder="Your phone goes here!">
+                        <input type="tel" id="phoneField" class="phoneField form__input" placeholder="Your phone goes here!">
                         <label for="emailField">Email: </label>
-                        <input type="text" id="emailField" class="emailField form__input" placeholder="Your email goes here!">
+                        <input type="email" id="emailField" class="emailField form__input" placeholder="Your email goes here!">
                         <label for="passwordField">Password: </label>
-                        <input type="text" id="passwordField" class="passwordField form__input" placeholder="Your password goes here!">
+                        <input type="password" id="passwordField" class="passwordField form__input" placeholder="Your password goes here!">
                         <label for="rpassField">Repeat password: </label>
-                        <input type="text" id="rpassField" class="rpassField form__input" placeholder="Your password goes here!">
+                        <input type="password" id="rpassField" class="rpassField form__input" placeholder="Your password goes here!">
 
                         <!-- Submit button appended through JavaScript -->
-                    </div>
                 </fieldset>
             </form>
         </div>
