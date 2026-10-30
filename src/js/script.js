@@ -20,6 +20,11 @@ function createGallery() {
 }
 
 function fullImage(i) {
+    // BUG FIX: a fast double click used to append a second modal on top of the
+    // first one, and closeModal() then removed the wrong (first) overlay.
+    // Only allow one modal to exist at a time.
+    if (document.querySelector('.modal')) return;
+
     const image = document.createElement('IMG');
     image.classList.add('full-image');
     image.src = `src/imgs/${i}.png`;
@@ -38,14 +43,19 @@ function fullImage(i) {
     modal.onclick = closeModal;
 }
 
-function closeModal() {
-    const close = document.querySelector('.close');
-    const modal = document.querySelector('.modal');
+function closeModal(event) {
+    // BUG FIX: always close the modal that received the click instead of the
+    // first `.modal`/`.close` found in the document. This keeps the overlay and
+    // the `overflow-hidden` class on <body> in sync, so the page is scrollable
+    // again after closing. The close button lives inside the modal, so it is
+    // removed together with its parent (no separate `close.remove()` needed).
+    const modal = event?.currentTarget ?? document.querySelector('.modal');
+    if (!modal) return;
+
     const body = document.querySelector('body');
     modal.classList.add('fade-out');
     setTimeout( () => {
-        modal?.remove();
+        modal.remove();
         body.classList.remove('overflow-hidden');
-        close.remove();
     }, 400)
 }
