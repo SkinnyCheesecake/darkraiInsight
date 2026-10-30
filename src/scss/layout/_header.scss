@@ -37,10 +37,22 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 2.5rem;
+    &:nth-last-child(1) {
+      padding-bottom: 2rem;
+
+      @include phone() {
+        padding-bottom: unset;
+      }
+    }
 
   @include phone() {
     flex-direction: row;
   }
+
+}
+
+.link{
+  color: $black !important;
 }
 
 .logo {
@@ -68,6 +80,7 @@ picture {
     object-fit: cover;
     z-index: 0;
     display: block;
+    filter: brightness(0.25) blur(0.75rem);
   }
 
   .content {
