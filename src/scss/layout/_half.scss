@@ -1,0 +1,40 @@
+@use '../tools/mixins' as *;
+@use '../tools/variables' as *;
+
+.half__hero{
+  @include container();
+
+  &--img{
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    margin: 0 auto;
+    max-height: 25rem;
+  }
+
+  @include tablet() {
+    @include grid(2, 5rem);
+  }
+
+  &-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.subtitle{
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+  @include phone(){
+    margin-top: 2rem;
+  }
+}
+
+.op{
+  text-align: center;
+  @include tablet(){
+    text-align: start;
+  }
+}
